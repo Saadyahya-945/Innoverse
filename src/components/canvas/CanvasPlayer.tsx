@@ -6,10 +6,9 @@ import { motion, MotionValue } from 'framer-motion';
 interface CanvasPlayerProps {
   images: HTMLImageElement[];
   progress: MotionValue<number>;
-  blurOpacity?: MotionValue<number>;
 }
 
-export default function CanvasPlayer({ images, progress, blurOpacity }: CanvasPlayerProps) {
+export default function CanvasPlayer({ images, progress }: CanvasPlayerProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -97,18 +96,9 @@ export default function CanvasPlayer({ images, progress, blurOpacity }: CanvasPl
   }, [images, progress]);
 
   return (
-    <>
-      <canvas
-        ref={canvasRef}
-        className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"
-      />
-      {/* Optional blur overlay layer mapped to scroll progress */}
-      {blurOpacity && (
-        <motion.div 
-          style={{ opacity: blurOpacity }}
-          className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none backdrop-blur-md bg-black/30"
-        />
-      )}
-    </>
+    <canvas
+      ref={canvasRef}
+      className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"
+    />
   );
 }
