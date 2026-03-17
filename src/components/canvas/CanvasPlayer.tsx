@@ -39,22 +39,32 @@ export default function CanvasPlayer({ images, progress }: CanvasPlayerProps) {
       }
 
       if (img && img.complete) {
-        // Aspect ratio cover logic
+        // Aspect ratio cover/contain logic
         const canvasRatio = canvas.width / canvas.height;
         const imgRatio = img.width / img.height;
+        const isMobile = window.innerWidth < 768;
         
         let drawWidth, drawHeight, offsetX, offsetY;
         
-        if (imgRatio > canvasRatio) {
-          drawHeight = canvas.height;
-          drawWidth = img.width * (canvas.height / img.height);
-          offsetX = (canvas.width - drawWidth) / 2;
-          offsetY = 0;
-        } else {
+        // On mobile portrait, avoid aggressive side cropping by acting like 'contain' or fitting to width
+        if (isMobile && imgRatio > canvasRatio) {
           drawWidth = canvas.width;
           drawHeight = img.height * (canvas.width / img.width);
           offsetX = 0;
           offsetY = (canvas.height - drawHeight) / 2;
+        } else {
+          // Default 'cover' logic for desktop or when the image is unusually tall
+          if (imgRatio > canvasRatio) {
+            drawHeight = canvas.height;
+            drawWidth = img.width * (canvas.height / img.height);
+            offsetX = (canvas.width - drawWidth) / 2;
+            offsetY = 0;
+          } else {
+            drawWidth = canvas.width;
+            drawHeight = img.height * (canvas.width / img.width);
+            offsetX = 0;
+            offsetY = (canvas.height - drawHeight) / 2;
+          }
         }
         
         context.clearRect(0, 0, canvas.width, canvas.height);
