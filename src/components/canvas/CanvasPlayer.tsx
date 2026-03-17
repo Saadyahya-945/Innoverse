@@ -1,14 +1,15 @@
 'use client';
 
 import React, { useRef, useEffect } from 'react';
-import { MotionValue } from 'framer-motion';
+import { motion, MotionValue } from 'framer-motion';
 
 interface CanvasPlayerProps {
   images: HTMLImageElement[];
   progress: MotionValue<number>;
+  blurOpacity?: MotionValue<number>;
 }
 
-export default function CanvasPlayer({ images, progress }: CanvasPlayerProps) {
+export default function CanvasPlayer({ images, progress, blurOpacity }: CanvasPlayerProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -96,9 +97,18 @@ export default function CanvasPlayer({ images, progress }: CanvasPlayerProps) {
   }, [images, progress]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"
-    />
+    <>
+      <canvas
+        ref={canvasRef}
+        className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"
+      />
+      {/* Optional blur overlay layer mapped to scroll progress */}
+      {blurOpacity && (
+        <motion.div 
+          style={{ opacity: blurOpacity }}
+          className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none backdrop-blur-md bg-black/30"
+        />
+      )}
+    </>
   );
 }
