@@ -55,11 +55,11 @@ export default function MorphSection({ progress }: MorphSectionProps) {
           Intelligence meets execution.
         </p>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 mix-blend-difference">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mix-blend-difference w-full max-w-5xl px-6">
            {['Vision', 'Engineering', 'Design', 'Systems'].map((role) => (
-             <div key={role} className="flex flex-col items-center">
-               <div className="w-16 h-16 rounded-full border border-cyan-400/30 mb-4 bg-cyan-400/5" />
-               <div className="text-sm uppercase tracking-widest text-cyan-400/80">{role}</div>
+             <div key={role} className="flex flex-col items-center justify-center p-8 border border-cyan-400/20 bg-black/40 backdrop-blur-md rounded-xl transition-all duration-300 hover:scale-105 hover:bg-cyan-400/10 hover:border-cyan-400/50 cursor-pointer">
+               <div className="text-lg md:text-xl text-cyan-400 font-bold mb-2 uppercase tracking-widest text-center">{role}</div>
+               <div className="text-xs text-cyan-400/60 uppercase tracking-wider">Lead</div>
              </div>
            ))}
         </div>

@@ -19,15 +19,15 @@ export default function CanvasPlayer({ images, progress }: CanvasPlayerProps) {
 
     const context = canvas.getContext('2d');
     if (!context) return;
-    
+
     let animationFrameId: number;
 
     const render = (latestProgress: number) => {
       if (images.length === 0) return;
-      
+
       const targetIndex = Math.min(images.length - 1, Math.floor(latestProgress * images.length));
       let img = images[targetIndex];
-      
+
       // Fallback to closest previous loaded image if current frame isn't loaded yet
       if (!img || !img.complete) {
         for (let i = targetIndex; i >= 0; i--) {
@@ -43,9 +43,9 @@ export default function CanvasPlayer({ images, progress }: CanvasPlayerProps) {
         const canvasRatio = canvas.width / canvas.height;
         const imgRatio = img.width / img.height;
         const isMobile = window.innerWidth < 768;
-        
+
         let drawWidth, drawHeight, offsetX, offsetY;
-        
+
         // On mobile portrait, avoid aggressive side cropping by acting like 'contain' or fitting to width
         if (isMobile && imgRatio > canvasRatio) {
           drawWidth = canvas.width;
@@ -66,7 +66,7 @@ export default function CanvasPlayer({ images, progress }: CanvasPlayerProps) {
             offsetY = (canvas.height - drawHeight) / 2;
           }
         }
-        
+
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
       }
