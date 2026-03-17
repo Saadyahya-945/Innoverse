@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Archivo } from 'next/font/google';
 import './globals.css';
 import { ReactLenis } from '../components/LenisProvider';
 
-const inter = Inter({ subsets: ['latin'] });
+const archivo = Archivo({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Innoverse | Cinematic Web Experience',
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased bg-[#050505] text-cyan-400 selection:bg-cyan-400/20`}>
+      <body className={`${archivo.className} antialiased bg-[#050505] text-cyan-400 selection:bg-cyan-400/20`}>
         {/* Grain Overlay */}
         <div className="pointer-events-none fixed inset-0 z-50 h-full w-full opacity-50 mix-blend-overlay">
           <svg className="h-full w-full">
