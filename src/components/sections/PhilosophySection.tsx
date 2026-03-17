@@ -7,9 +7,9 @@ interface PhilosophySectionProps {
 }
 
 export default function PhilosophySection({ progress }: PhilosophySectionProps) {
-  // Appears early in the morph sequence (0% to 25%)
-  const opacity = useTransform(progress, [0.0, 0.1, 0.2, 0.3], [0, 1, 1, 0]);
-  const yOffset = useTransform(progress, [0.0, 0.1, 0.2, 0.3], [100, 0, 0, -100]);
+  // Appears slightly later in the morph sequence (10% to 40%)
+  const opacity = useTransform(progress, [0.1, 0.2, 0.3, 0.4], [0, 1, 1, 0]);
+  const yOffset = useTransform(progress, [0.1, 0.2, 0.3, 0.4], [100, 0, 0, -100]);
 
   return (
     <motion.div 

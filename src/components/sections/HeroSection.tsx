@@ -20,7 +20,7 @@ export default function HeroSection({ images }: HeroSectionProps) {
   const opacity = useTransform(scrollYProgress, [0.8, 1], [1, 0]);
 
   return (
-    <section ref={containerRef} className="relative w-full z-10" style={{ height: '300vh' }}>
+    <section ref={containerRef} className="relative w-full z-10" style={{ height: '150vh' }}>
       <motion.div style={{ opacity }} className="sticky top-0 h-screen w-full overflow-hidden bg-[#050505]">
 
         {/* Isolated Canvas Player for Sequence 1 */}

@@ -41,7 +41,7 @@ export default function ScrollytellingWrapper({ heroUrls, morphUrls }: Scrollyte
         <HeroSection images={heroImages} />
         
         {/* Scrollable Container for sequences 2, 3, 4 */}
-        <div ref={morphContainerRef} className="relative z-10 w-full bg-[#050505]" style={{ height: '400vh' }}>
+        <div ref={morphContainerRef} className="relative z-10 w-full bg-[#050505]" style={{ height: '250vh' }}>
           
           <div className="sticky top-0 h-screen w-full z-0 overflow-hidden">
              <CanvasPlayer images={morphImages} progress={morphProgress} />
