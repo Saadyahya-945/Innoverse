@@ -10,21 +10,25 @@ export default function MorphSection({ progress }: MorphSectionProps) {
   // Projects visibility
   const projectsOpacity = useTransform(progress, [0.32, 0.40, 0.50, 0.58], [0, 1, 1, 0]);
   const projectsY = useTransform(progress, [0.32, 0.40, 0.50, 0.58], [50, 0, 0, -50]);
+  const projectsDisplay = useTransform(projectsOpacity, (v) => v > 0.01 ? 'flex' : 'none');
 
   // Members visibility (20% to 70% of sequence 4)
   const membersOpacity = useTransform(progress, [0.73, 0.76, 0.86, 0.90], [0, 1, 1, 0]);
+  const membersDisplay = useTransform(membersOpacity, (v) => v > 0.01 ? 'flex' : 'none');
 
-  // Events visibility (comes at 80% of sequence 4)
-  const eventsOpacity = useTransform(progress, [0.93, 0.95, 0.98, 1.0], [0, 1, 1, 0]);
-  const eventsY = useTransform(progress, [0.93, 0.95, 0.98, 1.0], [50, 0, 0, -50]);
+  // Events visibility
+  const eventsOpacity = useTransform(progress, [0.88, 0.90, 0.94, 0.96], [0, 1, 1, 0]);
+  const eventsY = useTransform(progress, [0.88, 0.90, 0.94, 0.96], [50, 0, 0, -50]);
+  const eventsDisplay = useTransform(eventsOpacity, (v) => v > 0.01 ? 'flex' : 'none');
 
-  // Footer (adjusted to overlap at the very end nicely)
+  // Footer
   const footerOpacity = useTransform(progress, [0.96, 1.0], [0, 1]);
+  const footerDisplay = useTransform(footerOpacity, (v) => v > 0.01 ? 'flex' : 'none');
 
   return (
     <>
       <motion.div
-        style={{ opacity: projectsOpacity, y: projectsY }}
+        style={{ opacity: projectsOpacity, y: projectsY, display: projectsDisplay }}
         className="fixed inset-0 flex flex-col items-start justify-center p-12 md:p-24 pointer-events-none z-10"
       >
         <h3 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter mix-blend-difference mb-4">
@@ -48,7 +52,7 @@ export default function MorphSection({ progress }: MorphSectionProps) {
       </motion.div>
 
       <motion.div
-        style={{ opacity: membersOpacity }}
+        style={{ opacity: membersOpacity, display: membersDisplay }}
         className="fixed inset-0 flex flex-col items-end justify-center p-12 md:p-24 pointer-events-none text-right z-10"
       >
         <h3 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter mix-blend-difference mb-4">
@@ -68,7 +72,7 @@ export default function MorphSection({ progress }: MorphSectionProps) {
         </div>
       </motion.div>
       <motion.div
-        style={{ opacity: eventsOpacity, y: eventsY }}
+        style={{ opacity: eventsOpacity, y: eventsY, display: eventsDisplay }}
         className="fixed inset-0 flex flex-col items-end justify-center p-12 md:p-24 pointer-events-none z-10"
       >
         <h3 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter mix-blend-difference mb-4">
@@ -94,7 +98,7 @@ export default function MorphSection({ progress }: MorphSectionProps) {
 
 
       <motion.div
-        style={{ opacity: footerOpacity }}
+        style={{ opacity: footerOpacity, display: footerDisplay }}
         className="fixed inset-x-0 bottom-0 p-8 md:p-12 flex flex-col items-center justify-end pointer-events-none z-10"
       >
         <h2 className="text-4xl font-light uppercase tracking-[0.2em] mix-blend-difference mb-8">
