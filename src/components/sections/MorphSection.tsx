@@ -95,11 +95,37 @@ export default function MorphSection({ progress }: MorphSectionProps) {
 
       <motion.div
         style={{ opacity: footerOpacity }}
-        className="fixed inset-x-0 bottom-0 p-12 flex justify-center pointer-events-none z-10"
+        className="fixed inset-x-0 bottom-0 p-8 md:p-12 flex flex-col items-center justify-end pointer-events-none z-10"
       >
-        <h2 className="text-4xl font-light uppercase tracking-[0.2em] mix-blend-difference">
+        <h2 className="text-4xl font-light uppercase tracking-[0.2em] mix-blend-difference mb-8">
           Join the Orbit.
         </h2>
+        
+        <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-4xl gap-8 pointer-events-auto mix-blend-difference">
+          <div className="flex gap-4 md:gap-6">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center text-cyan-400 hover:text-cyan-300 transition-all duration-300 uppercase tracking-widest text-xs md:text-sm font-bold border border-cyan-400/20 px-6 py-3 rounded-full bg-black/40 backdrop-blur-md hover:border-cyan-400/50 hover:bg-cyan-400/20 hover:scale-105">
+              Instagram
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center text-cyan-400 hover:text-cyan-300 transition-all duration-300 uppercase tracking-widest text-xs md:text-sm font-bold border border-cyan-400/20 px-6 py-3 rounded-full bg-black/40 backdrop-blur-md hover:border-cyan-400/50 hover:bg-cyan-400/20 hover:scale-105">
+              LinkedIn
+            </a>
+          </div>
+          
+          <div className="flex-1 flex justify-center md:justify-end">
+            <div className="border border-cyan-400/20 bg-black/40 backdrop-blur-md p-4 rounded-xl flex items-center gap-4 text-left hover:border-cyan-400/50 transition-all duration-300 cursor-pointer group hover:bg-black/60 hover:scale-[1.02]">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-cyan-400/10 rounded-lg flex items-center justify-center group-hover:bg-cyan-400/20 transition-colors border border-cyan-400/10 group-hover:border-cyan-400/30">
+                <svg className="w-5 h-5 md:w-6 md:h-6 text-cyan-400 group-hover:text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.242-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div className="flex flex-col justify-center">
+                <div className="text-[10px] md:text-xs text-cyan-400/50 uppercase tracking-widest mb-0.5">Global HQ</div>
+                <div className="text-xs md:text-sm font-bold text-white/90 group-hover:text-white transition-colors">San Francisco, CA</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </motion.div>
     </>
   );
