@@ -43,7 +43,7 @@ export default function MorphSection({ progress }: MorphSectionProps) {
             <div className="text-lg font-bold mb-1">AuraOS</div>
             <div className="text-sm text-cyan-400/70">Next.js / WebGL</div>
           </div>
-          <div className="border border-cyan-400/20 bg-black/40 backdrop-blur-sm p-6 rounded-xl w-64 md:mt-12">
+          <div className="border border-cyan-400/20 bg-black/40 backdrop-blur-sm p-6 rounded-xl w-64">
             <div className="text-xs text-cyan-400/50 mb-2 font-mono">2025</div>
             <div className="text-lg font-bold mb-1">Nexus Protocol</div>
             <div className="text-sm text-cyan-400/70">Rust / WASM</div>
@@ -88,7 +88,7 @@ export default function MorphSection({ progress }: MorphSectionProps) {
             <div className="text-lg font-bold mb-1">AuraOS</div>
             <div className="text-sm text-cyan-400/70">Next.js / WebGL</div>
           </div>
-          <div className="border border-cyan-400/20 bg-black/40 backdrop-blur-sm p-6 rounded-xl w-64 md:mt-12">
+          <div className="border border-cyan-400/20 bg-black/40 backdrop-blur-sm p-6 rounded-xl w-64">
             <div className="text-xs text-cyan-400/50 mb-2 font-mono">2025</div>
             <div className="text-lg font-bold mb-1">Nexus Protocol</div>
             <div className="text-sm text-cyan-400/70">Rust / WASM</div>
