@@ -6,7 +6,6 @@ import Navbar from '../components/ui/Navbar';
 export default function Home() {
   const heroUrls = getSequenceImages('sequence-1');
   const morphUrls = [
-    ...getSequenceImages('sequence-2'),
     ...getSequenceImages('sequence-3'),
     ...getSequenceImages('sequence-4'),
   ];
