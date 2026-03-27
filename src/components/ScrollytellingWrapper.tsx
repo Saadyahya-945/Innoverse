@@ -7,7 +7,6 @@ import Loader from './ui/Loader';
 import CanvasPlayer from './canvas/CanvasPlayer';
 
 import HeroSection from './sections/HeroSection';
-import PhilosophySection from './sections/PhilosophySection';
 import MorphSection from './sections/MorphSection';
 
 interface ScrollytellingWrapperProps {
@@ -49,7 +48,6 @@ export default function ScrollytellingWrapper({ heroUrls, morphUrls }: Scrollyte
 
           {/* Sections overlaying the morph canvas */}
           <div className="relative z-10 w-full mt-[-100vh]">
-            <PhilosophySection progress={morphProgress} />
             <MorphSection progress={morphProgress} />
           </div>
 
